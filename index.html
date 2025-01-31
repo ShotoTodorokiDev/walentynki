@@ -44,18 +44,13 @@
                     <button class="option-btn" onclick="alert('Gramy w Roblox!')">roblox</button>
                     <button class="option-btn" onclick="alert('Brawl Stars time!')">brawl stars</button>
                 `;
-            } else {
+            } else if (choice === 'no') {
                 content.innerHTML = `
                     <h1>Zdecyduj się</h1>
                     <button class="option-btn" onclick="showOptions('change-mind')">Jednak tak</button>
                     <button class="option-btn" onclick="showOptions('final-no')">Niee nadal nie</button>
                 `;
-            }
-        }
-        
-        function showOptions(choice) {
-            let content = document.getElementById("content");
-            if (choice === 'change-mind') {
+            } else if (choice === 'change-mind') {
                 content.innerHTML = `
                     <h1>Jupiii, gdzie je spędzimy?</h1>
                     <button class="option-btn" onclick="alert('Super! Idziemy na kebab!')">kebab</button>

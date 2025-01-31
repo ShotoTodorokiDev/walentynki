@@ -3,11 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moja Strona</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Walentynki</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffcccc;
+            padding: 20px;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .yes-btn { background-color: #ff6666; color: white; }
+        .no-btn { background-color: #6666ff; color: white; }
+        .option-btn { background-color: #ff9966; color: white; }
+    </style>
 </head>
 <body>
-    <h1>Witaj na mojej stronie!</h1>
-    <p>To moja pierwsza strona na GitHub Pages.</p>
+    <div class="container" id="content">
+        <h1>Czy chcesz zostać moją walentynką?</h1>
+        <button class="yes-btn" onclick="showOptions('yes')">Tak oczywiście</button>
+        <button class="no-btn" onclick="showOptions('no')">nieeeee</button>
+    </div>
+
+    <script>
+        function showOptions(choice) {
+            let content = document.getElementById("content");
+            if (choice === 'yes') {
+                content.innerHTML = `
+                    <h1>Gdzie je spędzimy?</h1>
+                    <button class="option-btn" onclick="alert('Super! Idziemy na kebab!')">kebab</button>
+                    <button class="option-btn" onclick="alert('Gramy w Roblox!')">roblox</button>
+                    <button class="option-btn" onclick="alert('Brawl Stars time!')">brawl stars</button>
+                `;
+            } else {
+                content.innerHTML = `
+                    <h1>Zdecyduj się</h1>
+                    <button class="option-btn" onclick="showOptions('change-mind')">Jednak tak</button>
+                    <button class="option-btn" onclick="showOptions('final-no')">Niee nadal nie</button>
+                `;
+            }
+        }
+        
+        function showOptions(choice) {
+            let content = document.getElementById("content");
+            if (choice === 'change-mind') {
+                content.innerHTML = `
+                    <h1>Jupiii, gdzie je spędzimy?</h1>
+                    <button class="option-btn" onclick="alert('Super! Idziemy na kebab!')">kebab</button>
+                    <button class="option-btn" onclick="alert('Gramy w Roblox!')">roblox</button>
+                    <button class="option-btn" onclick="alert('Brawl Stars time!')">brawl stars</button>
+                `;
+            } else if (choice === 'final-no') {
+                content.innerHTML = `
+                    <h1>Ostatecznie?</h1>
+                    <button class="option-btn" onclick="showOptions('change-mind')">Tak</button>
+                    <button class="option-btn" onclick="alert('O nie! 💔')">Nie</button>
+                `;
+            }
+        }
+    </script>
 </body>
 </html>
